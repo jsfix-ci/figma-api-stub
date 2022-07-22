@@ -321,7 +321,7 @@ export class PageNodeStub {
 
   set selection(value) {
     this._selection = value;
-    selectionChangeSubject.next();
+    selectionChangeSubject.next(undefined);
   }
 }
 

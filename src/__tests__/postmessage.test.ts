@@ -13,7 +13,7 @@ describe("postMessage", () => {
   it("UI sends message and plugin receives it", async () => {
     const waiting = new Subject();
     // @ts-ignore
-    figma.ui.onmessage = jest.fn().mockImplementation(() => waiting.next());
+    figma.ui.onmessage = jest.fn().mockImplementation(() => waiting.next(undefined));
     parent.postMessage({ pluginMessage: "abc" }, "*");
 
     return new Promise(resolve => {
@@ -34,7 +34,7 @@ describe("postMessage", () => {
     const waiting = new Subject();
 
     //@ts-ignore
-    global.onmessage = jest.fn().mockImplementation(() => waiting.next());
+    global.onmessage = jest.fn().mockImplementation(() => waiting.next(undefined));
     // @ts-ignore
     figma.ui.postMessage("abc");
 

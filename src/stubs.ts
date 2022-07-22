@@ -215,7 +215,7 @@ export const createFigma = (paramConfig: TConfig): PluginAPI => {
 
     set currentPage(value) {
       this._currentPage = value;
-      currentPageChangeSubject.next();
+      currentPageChangeSubject.next(undefined);
     }
 
     // @ts-ignore
